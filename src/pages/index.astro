@@ -3,34 +3,36 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Button from '../components/Button.astro';
 import Image from "astro/components/Image.astro";
 import danceMotherFuckerDance from '../assets/images/dance-motherfucker-dance.jpg';
+import Header from '../components/Header.astro';
 const nyheder = await Astro.glob('./nyheder/*.md');
 const sorteredenyheder = nyheder.sort((a, b) => Date.parse(b.frontmatter.dato) - Date.parse(a.frontmatter.dato));
-const udvalgtenyheder = sorteredenyheder.slice(0, 3);
+const udvalgtenyheder = sorteredenyheder.slice(0, 5);
+
 ---
 <MainLayout title="Titel">
 	<article class="relative mb-16">
 		<Image src={danceMotherFuckerDance} alt="dance motherfucker dance" class=""/>
 		<div class="@container absolute top-0 left-1/4 w-1/2 ">
-			<h1 class="text-white text-[14cqw] mt-[22cqi]">Dance, motherfucker, dance!</h1>
+			<h1 class="text-persianmosaic-200 text-[14cqw] mt-[22cqi] font-display">Dance, motherfucker, dance!</h1>
 		</div>
 		
 	</article>
 
 	<div class="max-w-5xl mx-auto p-4">	
 		<section class="mb-16">
-			<h2 class="mb-8 text-4xl">Nyheder</h2>
+			<h2 class="mb-8 text-4xl text-persianmosaic-500 font-bold">Nyheder</h2>
 			<!-- alt hvad der omhandler lists til nyheder -->
 			<ul>
 				{udvalgtenyheder.map(post => 
-				<li class="">
-					<div class="">
-					<img src={post.frontmatter.coverimage} alt={post.frontmatter.coveralt} class="" />
+				<li class="border-2 border-persianmosaic-500 flex gap-4 mb-8">
+					<div class="basis-1/3">
+					<img src={post.frontmatter.coverimage} alt={post.frontmatter.coveralt} class="objekt-cover h-full w-full" />
 					</div>
-					<div class="">
-						<h3><a href={post.url} class="">{post.frontmatter.title}</a></h3>
-						<span class="">{post.frontmatter.dato}</span>
-						<p>{post.frontmatter.kortversion}</p>
-						<a href={post.url} class="">Læs mere...</a>
+					<div class="basis-2/3 p-4 prose">
+						<h3><a href={post.url} class="link text-xl text-persianmosaic-700">{post.frontmatter.title}</a></h3>
+						<span class="block text-persianmosaic-300 text-xs">{post.frontmatter.dato}</span>
+						<p class="text-persianmosaic-600 text-sm">{post.frontmatter.kortversion}</p>
+						<a href={post.url} class="link text-persianmosaic-700 text-sm">Læs mere</a>
 					</div>
 				</li>
 				)}
@@ -39,7 +41,7 @@ const udvalgtenyheder = sorteredenyheder.slice(0, 3);
 		</section>
 
 		<section x-data="{ alledansehold: []}" x-init="alledansehold = await (await fetch('dansehold.json')).json(); alledansehold.reverse();" class="mb-16">
-			<h2 class="my-8 text-4xl">Dansehold Efterår 2024</h2>
+			<h2 class="my-8 text-4xl font-bold text-persianmosaic-500">Dansehold Efterår 2024</h2>
 			<!-- alt hvad der omhandler cards til dansehold -->
 			<section class="">
 				<template x-for="dansehold in alledansehold" :key="dansehold.id">	

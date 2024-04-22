@@ -3,7 +3,7 @@ import MainLayout from "./MainLayout.astro";
 const {frontmatter} = Astro.props;
 ---
 <MainLayout title="Titel">
-	<div class="max-w-5xl mx-auto px-4">	
+	<div class="max-w-5xl mx-auto px-4 nyhedsingle">	
 		<img src={frontmatter.coverimage} alt={frontmatter.coveralt} class="mb-8"/>
 		<section class="prose">
 			<h1>{frontmatter.title}</h1>

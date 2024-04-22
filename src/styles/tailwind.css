@@ -2,8 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
+@layer base {
 }
 
-@layer components{
+@layer components {
+  .nyhedsingle h1 {
+    @apply text-3xl font-bold text-persianmosaic-700;
+  }
+
+  .nyhedsingle h2 {
+    @apply text-xl font-bold text-persianmosaic-700;
+  }
+
+  .nyhedsingle h3 {
+    @apply text-lg font-bold text-persianmosaic-700;
+  }
+
+  .nyhedsingle p {
+    @apply text-sm text-persianmosaic-600;
+  }
 }
