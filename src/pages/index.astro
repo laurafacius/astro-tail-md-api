@@ -43,19 +43,19 @@ const udvalgtenyheder = sorteredenyheder.slice(0, 5);
 		<section x-data="{ alledansehold: []}" x-init="alledansehold = await (await fetch('dansehold.json')).json(); alledansehold.reverse();" class="mb-16">
 			<h2 class="my-8 text-4xl font-bold text-persianmosaic-500">Dansehold Efterår 2024</h2>
 			<!-- alt hvad der omhandler cards til dansehold -->
-			<section class="">
+			<section class="grid md:grid-cols-2 gap-4">
 				<template x-for="dansehold in alledansehold" :key="dansehold.id">	
-					<article class="">
+					<article class="card border-2 border-persianmosaic-500">
 						<a href="#">
-							<header class="">
-								<img :src="dansehold.holdbillede" :alt="dansehold.hodlbilledealt" class="">
-								<div class="" x-show="">Nyt hold!</div>
-								<div class="" x-show="dansehold.rabat"><span x-text="dansehold.rabatsats"></span> rabat!</div>
-								<div class="" x-show="(dansehold.pladserpaaholdet - dansehold.antaldeltagere) < 5">Kun få pladser tilbage!</div>
+							<header class="danseholdheader mb-4 relative">
+								<img :src="dansehold.holdbillede" :alt="dansehold.hodlbilledealt" class="objekt-cover h-full w-full">
+								<div class="badge absolute top-6 left-0 p-2 bg-persianmosaic-100 text-persianmosaic-800 font-bold text-xs" x-show="">Nyt hold!</div>
+								<div class="badge absolute top-6 right-0 p-1 bg-persianmosaic-500 text-persianmosaic-100 text-xs" x-show="dansehold.rabat"><span x-text="dansehold.rabatsats"></span> rabat!</div>
+								<div class="badge absolute bottom-6 right-0 p-1 bg-persianmosaic-800 text-persianmosaic-100 text-xs" x-show="(dansehold.pladserpaaholdet - dansehold.antaldeltagere) < 5">Kun få pladser tilbage!</div>
 							</header>
-							<section class="">
-								<h3 class="" x-text="dansehold.holdnavn"></h3>
-								<div class="">
+							<section class="holdinfo p-4">
+								<h3 class="mb-4 font-bold text-xl text-persianmosaic-700" x-text="dansehold.holdnavn"></h3>
+								<div class="grid grid-cols-2 mb-4 text-persianmosaic-300 text-xs">
 									<div class="venstre">
 										<div><span>Tid: </span><span x-text="dansehold.tidspunkt"></span></div>
 										<div><span>Alder: </span><span x-text="dansehold.alder"></span></div>
@@ -66,13 +66,13 @@ const udvalgtenyheder = sorteredenyheder.slice(0, 5);
 										<div><span>Lokale: </span><span x-text="dansehold.lokale"></span></div>
 									</div>
 								</div>
-								<p class="" x-text="dansehold.holdbeskrivelse"></p>	
+								<p class="mb-4 text-persianmosaic-600 text-sm" x-text="dansehold.holdbeskrivelse"></p>	
 							</section>
 							<hr />
-							<section class="">
-								<div class=""><img :src="dansehold.underviserfoto" :alt="dansehold.underviserfotoalt" class=""></div>
-								<div class="">
-									<p class="">Underviser: <span href="#" x-text=""></span></p>
+							<section class="underviserinfo flex my-6 gap-4 p-4">
+								<div class="objekt-cover h-full w-full"><img :src="dansehold.underviserfoto" :alt="dansehold.underviserfotoalt" class=""></div>
+								<div class="text-persianmosaic-600 text-sm">
+									<p class="font-bold">Underviser: <span href="#" x-text=""></span></p>
 									<p x-text="dansehold.underviserinfo"></p>
 								</div>
 							</section>
