@@ -47,13 +47,13 @@ const udvalgtenyheder = sorteredenyheder.slice(0, 5);
 				<template x-for="dansehold in alledansehold" :key="dansehold.id">	
 					<article class="card border-2 border-persianmosaic-500">
 						<a href="#">
-							<header class="danseholdheader mb-4 relative">
+							<header class="mb-4 relative">
 								<img :src="dansehold.holdbillede" :alt="dansehold.hodlbilledealt" class="objekt-cover h-full w-full">
-								<div class="badge absolute top-6 left-0 p-2 bg-persianmosaic-100 text-persianmosaic-800 font-bold text-xs" x-show="">Nyt hold!</div>
-								<div class="badge absolute top-6 right-0 p-1 bg-persianmosaic-500 text-persianmosaic-100 text-xs" x-show="dansehold.rabat"><span x-text="dansehold.rabatsats"></span> rabat!</div>
-								<div class="badge absolute bottom-6 right-0 p-1 bg-persianmosaic-800 text-persianmosaic-100 text-xs" x-show="(dansehold.pladserpaaholdet - dansehold.antaldeltagere) < 5">Kun få pladser tilbage!</div>
+								<div class="absolute top-6 left-0 p-2 bg-persianmosaic-100 text-persianmosaic-800 font-bold text-xs" x-show="">Nyt hold!</div>
+								<div class="absolute top-16 left-0 p-2 bg-persianmosaic-500 text-persianmosaic-100 text-xs" x-show="dansehold.rabat"><span x-text="dansehold.rabatsats"></span> rabat!</div>
+								<div class="absolute bottom-2 left-0 p-1 bg-persianmosaic-800 text-persianmosaic-100 text-xs" x-show="(dansehold.pladserpaaholdet - dansehold.antaldeltagere) < 5">Kun få pladser tilbage!</div>
 							</header>
-							<section class="holdinfo p-4">
+							<section class="p-4">
 								<h3 class="mb-4 font-bold text-xl text-persianmosaic-700" x-text="dansehold.holdnavn"></h3>
 								<div class="grid grid-cols-2 mb-4 text-persianmosaic-300 text-xs">
 									<div class="venstre">
