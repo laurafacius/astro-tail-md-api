@@ -9,7 +9,7 @@ const sorteredenyheder = nyheder.sort((a, b) => Date.parse(b.frontmatter.dato) -
 const udvalgtenyheder = sorteredenyheder.slice(0, 5);
 
 ---
-<MainLayout title="Titel">
+<MainLayout title="Danseskolen">
 	<article class="relative mb-16">
 		<Image src={danceMotherFuckerDance} alt="dance motherfucker dance" class=""/>
 		<div class="@container absolute top-0 left-1/4 w-1/2 ">
@@ -69,8 +69,8 @@ const udvalgtenyheder = sorteredenyheder.slice(0, 5);
 								<p class="mb-4 text-persianmosaic-600 text-sm" x-text="dansehold.holdbeskrivelse"></p>	
 							</section>
 							<hr />
-							<section class="underviserinfo flex my-6 gap-4 p-4">
-								<div class="objekt-cover h-full w-full"><img :src="dansehold.underviserfoto" :alt="dansehold.underviserfotoalt" class=""></div>
+							<section class="flex my-6 gap-4 p-4">
+								<div class="flex-none"><img :src="dansehold.underviserfoto" :alt="dansehold.underviserfotoalt" class="objekt-cover h-16 w-16 rounded-full"></div>
 								<div class="text-persianmosaic-600 text-sm">
 									<p class="font-bold">Underviser: <span href="#" x-text=""></span></p>
 									<p x-text="dansehold.underviserinfo"></p>
